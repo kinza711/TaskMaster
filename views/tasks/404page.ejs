@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>404 Page Not Found - TaskMaster</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#46ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#131811", 
+                        "surface-dark": "#1c2419",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "2rem", 
+                        "xl": "3rem", 
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Utilities */
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, #2c3928 1px, transparent 1px),
+                              linear-gradient(to bottom, #2c3928 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#131811] dark:text-white font-display overflow-x-hidden flex flex-col min-h-screen">
+<!-- Header -->
+<header class="w-full border-b border-[#2c3928] bg-background-light dark:bg-background-dark sticky top-0 z-50">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1200px] mx-auto">
+<div class="flex items-center gap-3 text-[#131811] dark:text-white cursor-pointer group">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined text-xl">task_alt</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">TaskMaster</h2>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="flex items-center justify-center overflow-hidden rounded-full h-10 px-6 hover:bg-black/5 dark:hover:bg-white/10 text-sm font-bold transition-colors">
+<span class="truncate"><a href="/login">Sign In</a></span>
+</button>
+<button class="flex items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary hover:bg-[#3bd60f] text-[#131811] text-sm font-bold transition-colors shadow-[0_0_15px_rgba(70,236,19,0.3)]">
+<span class="truncate"> <a href="/register">Sign Up</a></span>
+</button>
+</div>
+<button class="md:hidden p-2 text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content (404) -->
+<main class="flex-1 flex flex-col items-center justify-center relative w-full px-4 py-12 md:py-20">
+<!-- Background Decor -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-20 bg-grid-pattern"></div>
+<div class="relative z-10 flex flex-col items-center max-w-[960px] w-full text-center">
+<!-- Animated 404 Visual -->
+<div class="relative mb-8 animate-float">
+<!-- Large Backdrop Number -->
+<h1 class="text-[120px] md:text-[200px] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-transparent select-none absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 blur-sm">
+                    404
+                </h1>
+<!-- Foreground Illustration/Element -->
+<div class="relative">
+<div class="bg-surface-dark border border-[#2c3928] rounded-2xl p-6 md:p-8 shadow-2xl w-[280px] md:w-[320px] mx-auto transform rotate-3 hover:rotate-0 transition-transform duration-500">
+<div class="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
+<div class="flex gap-2">
+<div class="size-3 rounded-full bg-red-500/50"></div>
+<div class="size-3 rounded-full bg-yellow-500/50"></div>
+<div class="size-3 rounded-full bg-green-500/50"></div>
+</div>
+<div class="h-2 w-12 bg-white/10 rounded-full"></div>
+</div>
+<!-- Empty Task List Illustration -->
+<div class="space-y-4">
+<div class="flex items-center gap-3 opacity-30">
+<div class="size-5 border-2 border-white rounded-md"></div>
+<div class="h-3 bg-white/50 rounded w-full"></div>
+</div>
+<div class="flex items-center gap-3 opacity-20">
+<div class="size-5 border-2 border-white rounded-md"></div>
+<div class="h-3 bg-white/50 rounded w-3/4"></div>
+</div>
+<div class="flex items-center gap-3 opacity-10">
+<div class="size-5 border-2 border-white rounded-md"></div>
+<div class="h-3 bg-white/50 rounded w-5/6"></div>
+</div>
+</div>
+<!-- 404 Stamp -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-12deg] border-4 border-primary px-4 py-2 rounded-lg bg-background-dark/80 backdrop-blur-sm shadow-[0_0_30px_rgba(70,236,19,0.2)]">
+<span class="text-4xl md:text-5xl font-black text-primary tracking-widest">404</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="flex flex-col items-center gap-4 max-w-[480px]">
+<h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                    Page Not Found
+                </h2>
+<p class="text-[#a3b99d] text-base md:text-lg leading-relaxed">
+                    The page you are looking for has been moved, deleted, or never existed. Let's get you back on track.
+                </p>
+</div>
+<!-- Actions -->
+<div class="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="flex items-center justify-center gap-2 rounded-full h-12 px-8 bg-primary hover:bg-[#3bd60f] text-[#131811] text-base font-bold transition-all shadow-[0_4px_20px_rgba(70,236,19,0.25)] active:scale-95 w-full sm:w-auto">
+<span class="material-symbols-outlined text-[20px]">login</span>
+<span><a href="/dashboard">Go to login</a></span>
+</button>
+<button class="flex items-center justify-center gap-2 rounded-full h-12 px-8 bg-transparent border border-[#2c3928] hover:border-[#a3b99d] text-white hover:bg-white/5 text-base font-bold transition-all active:scale-95 w-full sm:w-auto">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span><a href="/">Go Back</a></span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<%- include("../partials/footer") %>
+</body></html>

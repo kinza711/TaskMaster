@@ -1,0 +1,22 @@
+{
+  "name": "taskmaster",
+  "version": "1.0.0",
+  "description": "Personal Task Manager using MERN + EJS",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.0.1",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "tailwindcss": "^4.1.18"
+  }
+}

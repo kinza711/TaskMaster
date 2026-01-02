@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMaster Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#46ec13",
+                "background-light": "#f6f8f6",
+                "background-dark": "#142210",
+              },
+              fontFamily: {
+                "display": ["Manrope", "sans-serif"],
+                "body": ["Noto Sans", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetic in dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #142210;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2c3928;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #46ec13;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col transition-colors duration-300">
+<!-- Navbar -->
+<header class="w-full border-b border-gray-200 dark:border-[#2c3928] bg-white/80 dark:bg-[#131811]/80 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-xl bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">TaskMaster</h2>
+ <button
+            class="hidden sm:flex cursor-pointer items-center justify-center rounded-full h-9 px-5 bg-transparent border border-white/20 hover:bg-white/10 text-white text-sm font-bold transition-all">
+            <span><a href="/">Go Home</a></span>
+        </button>
+</div>
+<div class="hidden sm:flex items-center gap-4">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">New here?</span>
+<a class="px-5 py-2.5 rounded-full border border-gray-200 dark:border-[#41543b] text-sm font-bold hover:bg-gray-50 dark:hover:bg-[#1e271c] transition-colors" href="/register">Sign Up</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center p-4 lg:p-8 relative overflow-hidden">
+<!-- Abstract Background Pattern -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-primary/10 rounded-full blur-[80px]"></div>
+</div>
+<div class="w-full max-w-[1200px] grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+<!-- Left Column: Illustration & Branding -->
+<div class="hidden lg:flex flex-col justify-center space-y-8">
+<div class="relative w-full aspect-square max-w-[500px] mx-auto">
+<div class="w-full h-full bg-cover bg-center rounded-2xl shadow-2xl shadow-primary/10 overflow-hidden" data-alt="Abstract 3D productivity illustration with floating tasks and glowing green accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAT1bCZCswmtZivKHF_TiSwc6gm-CLgkHtxAAC7vtSThFLyUruBMN0PSSl1zFZ7eGIuf0AF08uN7BnFlb7fCikkbTEk9KBWLh3JIIJd03yfuMAVUFuKsw0_0ayLB2wJGnzBU9NC6dOF1p4UZ6kqq0b8cRWEW0l3WDKvPoLWtT8I7Z3xB4XKtP83dNCs63NHkGwCoorQ5eJrPuHZEJNrHwf3Poc6wR0uOzgm3uI1Lf5DzBNGXSnsplVyy4KEhDzhbAm1gIDblLKvjY");'>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<blockquote class="text-white text-lg font-medium italic mb-4">"The only way to do great work is to love what you do."</blockquote>
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-gray-600 bg-cover bg-center" data-alt="Portrait of a successful user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOH2Vaihidrc3709BIPRyoXJEsQY1K6MLQh69fD_FP9PojTA77zuqAvey0cH5u7sRMf1sUMtXlsmEz9PE-v4e9qVI1EnLCi3Yhvp2qsVWuscYAKj77YofPvZZkUebUsGTDh6_dhO_8wq1AKbGfOt3de_Y8xm0RBR297v00mj4o6AeuUjIi1XZ63pOR2VpgC8BCZBPw0GsADN3hsY4D8Zz0gow6bgcMMrEunwYKmMhYtvjcoerlyfY5d9cyTMIpOcODEXMcta_iddc");'></div>
+<div>
+<p class="text-sm font-bold text-white">Steve Jobs</p>
+<p class="text-xs text-gray-400">Productivity Enthusiast</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Login Form -->
+<div class="w-full max-w-[480px] mx-auto lg:mx-0 bg-white dark:bg-[#1e271c]/60 backdrop-blur-xl border border-gray-100 dark:border-[#2c3928] rounded-[2rem] p-8 sm:p-10 shadow-xl">
+<div class="text-center lg:text-left mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Welcome back</h1>
+<p class="text-slate-500 dark:text-gray-400">Please enter your details to sign in.</p>
+<% if (message) { %>
+  <div class="mb-5 px-4 py-3 rounded-xl text-sm font-medium
+              bg-red-100 text-red-700
+              dark:bg-red-500/10 dark:text-red-400
+              border border-red-200 dark:border-red-500/20">
+    <%= message %>
+  </div>
+<% } %>
+
+</div>
+<form action="/login" class="space-y-5" method="POST">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-slate-700 dark:text-gray-300 ml-1" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">mail</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3.5 bg-gray-50 dark:bg-[#142210] border border-gray-200 dark:border-[#41543b] rounded-full text-slate-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm" id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex items-center justify-between ml-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-gray-300" for="password">Password</label>
+<!-- <a class="text-xs font-semibold text-primary hover:text-green-400 transition-colors" href="#">Forgot Password?</a> -->
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="block w-full pl-11 pr-11 py-3.5 bg-gray-50 dark:bg-[#142210] border border-gray-200 dark:border-[#41543b] rounded-full text-slate-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-3.5 px-4 bg-primary hover:bg-[#3cd610] text-black font-bold text-base rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 mt-4" type="submit">
+                        Sign In
+                        <span class="material-symbols-outlined text-lg">login</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative flex items-center py-8">
+<div class="flex-grow border-t border-gray-200 dark:border-[#2c3928]"></div>
+<span class="flex-shrink-0 mx-4 text-xs font-medium text-gray-400 uppercase tracking-wider">Or continue with</span>
+<div class="flex-grow border-t border-gray-200 dark:border-[#2c3928]"></div>
+</div>
+<!-- Social Login Buttons -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 px-4 py-3 bg-white dark:bg-[#142210] border border-gray-200 dark:border-[#41543b] rounded-full text-slate-700 dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-[#2c3928] hover:border-gray-300 dark:hover:border-gray-500 transition-all" type="button">
+<img alt="Google" class="w-5 h-5" data-alt="Google G Logo Icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4T-7knktpD2h_uhtGlKcpL3RWFz2ZRtXN9K5BcepBtDEjbJyoZYm3ElRSN_EGNat4ox8jBrDXHBtbHIMK4oqzlsRYb9hBDiF1WRfWuvCJsgQnuFADKWilB4-attkw-gOUEI4sxfBoLWBsX-kKdx5HaNt-aau7IjU54W7V2v8fn5b3OGdAU8nQ0K09iCIrwRoKuV2GFydzuoWLVK9_Mi_23SNVhRbD1wqSBAd6W2FU1MzSMceIOnRQVJE7peUlIDAKjknhK-7wank"/>
+<span class="hidden sm:inline">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 px-4 py-3 bg-white dark:bg-[#142210] border border-gray-200 dark:border-[#41543b] rounded-full text-slate-700 dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-[#2c3928] hover:border-gray-300 dark:hover:border-gray-500 transition-all" type="button">
+<svg class="w-5 h-5 fill-current" data-alt="Github Octocat Logo Icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.655-3.795-1.455-3.795-1.455-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.09-.735.09-.735 1.2.09 1.83 1.23 1.83 1.23 1.08 1.86 2.805 1.32 3.495 1.005.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405 1.02 0 2.04.135 3 .405 2.28-1.56 3.285-1.23 3.285-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
+</svg>
+<span class="hidden sm:inline">GitHub</span>
+</button>
+</div>
+<p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-8 sm:hidden">
+                    Don't have an account? <a class="font-bold text-primary hover:underline" href="#">Sign up</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="py-6 text-center text-sm text-gray-500 dark:text-gray-600">
+<p>© 2025 TaskMaster Inc. All rights reserved.</p>
+</footer>
+</body></html>

@@ -1,0 +1,10 @@
+server.js => set only mongodb connection and
+ create server + import app.js file 
+app.js => set express , set view engine,
+ static public folder, express middleware ,
+ express-session, default route, 404 route
+ and global midleware for session logdin user
+ model => user models + task model
+ middalware => islogedin + upload profile middleware
+ controllers => auth + profile + task logics
+ 

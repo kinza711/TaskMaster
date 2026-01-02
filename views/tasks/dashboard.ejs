@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<% -include("../partials/head") %>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden">
+    <div class="flex h-screen w-full">
+        <!-- Side Navigation -->
+
+        <%- include('../partials/sidebar') %>
+
+
+            <!-- Main Content -->
+            <main
+                class="flex-1 flex flex-col h-full relative overflow-hidden bg-background-light dark:bg-background-dark">
+                <!-- Top Header -->
+                <%- include('../partials/header') %>
+
+                    <!-- Scrollable Page Content -->
+                    <div class="flex-1 overflow-y-auto p-6 md:p-8 scroll-smooth">
+                        <div class="max-w-[1200px] mx-auto flex flex-col gap-8">
+                            <!-- Page Heading -->
+                            <div class="flex flex-wrap justify-between items-end gap-4 animate-fade-in-up">
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Hello, <%= username %>
+                                    </h2>
+                                    <p class="text-text-secondary text-lg">Here's what's happening with your projects
+                                        today.</p>
+                                </div>
+                                <p
+                                    class="text-primary font-medium px-4 py-2 bg-surface-dark rounded-lg text-sm border border-primary/20">
+                                    <%= new Date().toLocaleDateString("en-US", { weekday: "long" , month: "short" ,
+                                        day: "numeric" }) %>
+                                </p>
+
+                            </div>
+                            <!-- Stats Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                                <div
+                                    class="bg-surface-dark p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors group">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div
+                                            class="p-2 bg-background-dark rounded-lg text-text-secondary group-hover:text-white transition-colors">
+                                            <span class="material-symbols-outlined">folder_open</span>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-text-secondary uppercase tracking-wider">Total</span>
+                                    </div>
+                                    <p class="text-3xl font-bold text-white mb-1">
+                                        <%= totalTasks %>
+                                    </p>
+                                    <p class="text-sm text-text-secondary">Tasks Assigned</p>
+                                </div>
+                                <div
+                                    class="bg-surface-dark p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors group">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div
+                                            class="p-2 bg-background-dark rounded-lg text-primary group-hover:text-primary transition-colors">
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-text-secondary uppercase tracking-wider">Done</span>
+                                    </div>
+                                    <p class="text-3xl font-bold text-white mb-1">
+                                        <%= completedTasks %>
+                                    </p>
+                                    <p class="text-sm text-text-secondary">+4 from yesterday</p>
+                                </div>
+                                <div
+                                    class="bg-surface-dark p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors group">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div
+                                            class="p-2 bg-background-dark rounded-lg text-yellow-400 group-hover:text-yellow-300 transition-colors">
+                                            <span class="material-symbols-outlined">hourglass_top</span>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-text-secondary uppercase tracking-wider">Pending</span>
+                                    </div>
+                                    <p class="text-3xl font-bold text-white mb-1">
+                                        <%= pendingTasks %>
+                                    </p>
+                                    <p class="text-sm text-text-secondary">Needs attention</p>
+                                </div>
+                                <div
+                                    class="bg-surface-dark p-6 rounded-xl border border-white/5 hover:border-red-500/30 transition-colors group">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div
+                                            class="p-2 bg-background-dark rounded-lg text-red-500 group-hover:text-red-400 transition-colors">
+                                            <span class="material-symbols-outlined">priority_high</span>
+                                        </div>
+                                        <span
+                                            class="text-xs font-bold text-text-secondary uppercase tracking-wider">Urgent</span>
+                                    </div>
+                                    <p class="text-3xl font-bold text-white mb-1">
+                                        <%= priorityTasks %>
+                                    </p>
+                                    <p class="text-sm text-text-secondary">High Priority</p>
+                                </div>
+                            </div>
+                            <!-- Charts & Recent Tasks Split -->
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                <!-- Task Velocity Chart -->
+                                <div
+                                    class="lg:col-span-2 bg-surface-dark rounded-xl p-6 border border-white/5 flex flex-col">
+                                    <div class="flex items-center justify-between mb-6">
+                                        <div>
+                                            <h3 class="text-lg font-bold text-white">Task Velocity</h3>
+                                            <p class="text-sm text-text-secondary">Completion rate over last 7 days</p>
+                                        </div>
+                                        <button
+                                            class="p-2 text-text-secondary hover:text-white rounded-lg hover:bg-background-dark transition-colors">
+                                            <span class="material-symbols-outlined">more_horiz</span>
+                                        </button>
+                                    </div>
+                                    <div class="flex-1 w-full relative min-h-[250px] flex items-end justify-center">
+                                        <!-- Chart SVG -->
+                                        <svg class="w-full h-full" fill="none" preserveaspectratio="none"
+                                            viewbox="0 0 478 150" xmlns="http://www.w3.org/2000/svg">
+                                            <defs>
+                                                <lineargradient gradientunits="userSpaceOnUse" id="paint0_linear"
+                                                    x1="239" x2="239" y1="0" y2="150">
+                                                    <stop stop-color="#46ec13" stop-opacity="0.2"></stop>
+                                                    <stop offset="1" stop-color="#46ec13" stop-opacity="0"></stop>
+                                                </lineargradient>
+                                            </defs>
+                                            <path
+                                                d="M0 110C20 110 40 40 60 40C80 40 100 90 120 90C140 90 160 30 180 30C200 30 220 70 240 70C260 70 280 50 300 50C320 50 340 120 360 120C380 120 400 20 420 20C440 20 460 100 478 100V150H0V110Z"
+                                                fill="url(#paint0_linear)"></path>
+                                            <path
+                                                d="M0 110C20 110 40 40 60 40C80 40 100 90 120 90C140 90 160 30 180 30C200 30 220 70 240 70C260 70 280 50 300 50C320 50 340 120 360 120C380 120 400 20 420 20C440 20 460 100 478 100"
+                                                stroke="#46ec13" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="3"></path>
+                                            <!-- Data Points -->
+                                            <circle cx="60" cy="40" fill="#142210" r="4" stroke="#46ec13"
+                                                stroke-width="2">
+                                            </circle>
+                                            <circle cx="180" cy="30" fill="#142210" r="4" stroke="#46ec13"
+                                                stroke-width="2">
+                                            </circle>
+                                            <circle cx="300" cy="50" fill="#142210" r="4" stroke="#46ec13"
+                                                stroke-width="2">
+                                            </circle>
+                                            <circle cx="420" cy="20" fill="#142210" r="4" stroke="#46ec13"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="flex justify-between mt-4 px-2">
+                                        <span class="text-xs font-bold text-text-secondary uppercase">Mon</span>
+                                        <span class="text-xs font-bold text-text-secondary uppercase">Tue</span>
+                                        <span class="text-xs font-bold text-text-secondary uppercase">Wed</span>
+                                        <span class="text-xs font-bold text-text-secondary uppercase">Thu</span>
+                                        <span class="text-xs font-bold text-text-secondary uppercase">Fri</span>
+                                        <span class="text-xs font-bold text-text-secondary uppercase">Sat</span>
+                                        <span class="text-xs font-bold text-text-secondary uppercase">Sun</span>
+                                    </div>
+                                </div>
+                                <!-- Recent Tasks List -->
+                                <div class="bg-surface-dark rounded-xl p-6 border border-white/5 flex flex-col h-full">
+                                    <div class="flex items-center justify-between mb-6">
+                                        <h3 class="text-lg font-bold text-white">Recent Tasks</h3>
+                                        <a class="text-xs font-bold text-primary hover:text-white transition-colors"
+                                            href="/mytasks">View All</a>
+                                    </div>
+
+                                    <div class="flex flex-col gap-3 flex-1">
+
+                                        <% recentTasks.forEach(Task=> { %>
+                                            <div
+                                                class="group flex items-center justify-between p-3 rounded-xl bg-background-dark border border-transparent hover:border-primary/20 transition-all cursor-pointer">
+
+                                                <div class="flex items-center gap-3">
+                                                    <div
+                                                        class="p-2 rounded-full bg-surface-dark text-primary group-hover:scale-110 transition-transform">
+                                                        <span class="material-symbols-outlined text-[20px]">
+                                                            assignment
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="flex flex-col">
+                                                        <p
+                                                            class="text-sm font-bold text-white group-hover:text-primary transition-colors">
+                                                            <%= Task.Title %>
+                                                        </p>
+                                                        <p class="text-xs text-text-secondary">
+                                                            Due: <%= Task.date ? Task.date.toDateString() : "No date" %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <% if(Task.Priority==="high" ) { %>
+                                                    <span
+                                                        class="px-2 py-1 rounded-md text-[10px] font-bold bg-red-500/10 text-red-400 border border-red-500/20">
+                                                        High
+                                                    </span>
+                                                    <% } else if(Task.Priority==="medium" ) { %>
+                                                        <span
+                                                            class="px-2 py-1 rounded-md text-[10px] font-bold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+                                                            Medium
+                                                        </span>
+                                                        <% } else { %>
+                                                            <span
+                                                                class="px-2 py-1 rounded-md text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                                                                Low
+                                                            </span>
+                                                            <% } %>
+
+                                            </div>
+                                            <% }) %>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </main>
+    </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>

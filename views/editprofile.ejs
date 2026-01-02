@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<% -include("./partials/head") %>
+
+    <body
+        class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white overflow-hidden h-screen flex">
+        <!-- Sidebar Navigation -->
+        <%- include('./partials/sidebar') %>
+            <!-- Main Content Area -->
+            <main class="flex-1 h-full overflow-y-auto relative flex flex-col">
+                <!-- Background decorative gradient -->
+                <div
+                    class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-[#1c2b18] to-transparent -z-10 pointer-events-none">
+                </div>
+                <div
+                    class="layout-container flex flex-col flex-1 max-w-[1200px] w-full mx-auto px-4 md:px-8 lg:px-12 py-8">
+                    <!-- Page Heading -->
+                    <header class="flex flex-col gap-2 mb-8 animate-fade-in-up">
+                        <div class="flex flex-wrap justify-between items-end gap-4">
+                            <div class="flex flex-col gap-1">
+                                <h2
+                                    class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                                    Edit
+                                    Profile</h2>
+                                <p class="text-[#a3b99d] text-base font-normal leading-normal">Manage your personal
+                                    information
+                                    and security settings.</p>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- Content Card -->
+                    <div
+                        class="flex-1 bg-surface-dark/50 backdrop-blur-sm border border-[#2c3928] rounded-3xl p-6 md:p-10 shadow-xl">
+                        <!-- Profile Header -->
+                        <div
+                            class="flex flex-col md:flex-row gap-8 items-start md:items-center border-b border-[#2c3928] pb-8 mb-8">
+                            <div class="relative group cursor-pointer">
+                                <form action="/updateimg/<%= user._id %>?_method=PUT" method="POST"
+                                    enctype="multipart/form-data" class="relative w-max">
+                                    <!-- Profile Image -->
+                                    <div
+                                        class="relative w-32 h-32 md:w-40 md:h-40 rounded-full ring-4 ring-background-dark shadow-lg overflow-visible">
+                                        <img src="<%= pic %>" alt="Profile Picture"
+                                            class="w-full h-full object-cover rounded-full">
+
+                                        <!-- Camera icon overlay -->
+                                        <label for="avatarInput"
+                                            class="absolute bottom-2 right-2 bg-primary text-black p-2 rounded-full shadow-lg cursor-pointer hover:bg-green-500 transition-colors">
+                                            <span class="material-symbols-outlined text-xl">camera_alt</span>
+                                        </label>
+
+                                        <!-- Hidden file input -->
+                                        <input type="file" name="pic" id="avatarInput" class="hidden" />
+                                    </div>
+
+                                    <!-- Submit button -->
+                                    <button type="submit"
+                                        class="mt-4 flex-1 sm:flex-none px-8 h-12 rounded-full bg-primary text-black font-bold shadow-[0_0_20px_rgba(70,236,19,0.3)] hover:shadow-[0_0_30px_rgba(70,236,19,0.5)] hover:bg-[#3bdb0f] transition-all flex items-center justify-center gap-2">
+                                        <span class="material-symbols-outlined">save</span>
+                                        Save profile
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="flex flex-col flex-1 gap-4">
+                                <div class="flex flex-col">
+                                    <h3 class="text-white text-2xl font-bold leading-tight">
+                                        <%= username %>
+                                    </h3>
+                                    <p class="text-[#a3b99d] text-base">
+                                        <%= email %>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Form -->
+                        <form action="/updateprofile/<%= user._id %>?_method=PUT" method="POST"
+                            class="flex flex-col gap-6 max-w-[800px]">
+                            <!-- Row 1: Personal Info -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <label class="flex flex-col gap-2">
+                                    <span class="text-white text-sm font-semibold tracking-wide ml-1">Full Name</span>
+                                    <div class="relative flex items-center">
+                                        <span
+                                            class="material-symbols-outlined absolute left-4 text-[#a3b99d]">person</span>
+                                        <input
+                                            class="form-input flex w-full rounded-full bg-[#142210] border border-[#2c3928] focus:border-primary focus:ring-1 focus:ring-primary h-14 pl-12 pr-4 text-white placeholder-[#5c6b55] transition-all"
+                                            placeholder="Enter your full name" type="text" value="<%= user.name %>"
+                                            name="name" />
+                                    </div>
+                                </label>
+                                <label class="flex flex-col gap-2">
+                                    <span class="text-white text-sm font-semibold tracking-wide ml-1">Email
+                                        Address</span>
+                                    <div class="relative flex items-center">
+                                        <span
+                                            class="material-symbols-outlined absolute left-4 text-[#a3b99d]">mail</span>
+                                        <input
+                                            class="form-input flex w-full rounded-full bg-[#142210] border border-[#2c3928] focus:border-primary focus:ring-1 focus:ring-primary h-14 pl-12 pr-4 text-white placeholder-[#5c6b55] transition-all"
+                                            placeholder="name@company.com" type="email" value="<%= user.email %>"
+                                            name="email" />
+                                    </div>
+                                </label>
+                            </div>
+                            <!-- Divider -->
+                            <div class="h-px w-full bg-[#2c3928] my-2"></div>
+                            <div class="flex flex-col gap-1">
+                                <h4 class="text-white text-lg font-bold">Security</h4>
+                                <p class="text-[#a3b99d] text-sm">Update your records to keep your account secure.</p>
+                            </div>
+                            <!-- Row 2: Security -->
+                            <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <label class="flex flex-col gap-2">
+                            <span class="text-white text-sm font-semibold tracking-wide ml-1">New Password</span>
+                            <div class="relative flex items-center">
+                                <span class="material-symbols-outlined absolute left-4 text-[#a3b99d]">lock</span>
+                                <input
+                                    class="form-input flex w-full rounded-full bg-[#142210] border border-[#2c3928] focus:border-primary focus:ring-1 focus:ring-primary h-14 pl-12 pr-12 text-white placeholder-[#5c6b55] transition-all"
+                                    placeholder="••••••••" type="password" />
+                                <button
+                                    class="absolute right-4 text-[#a3b99d] hover:text-white transition-colors flex items-center"
+                                    type="button">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </div>
+                        </label>
+                        <label class="flex flex-col gap-2">
+                            <span class="text-white text-sm font-semibold tracking-wide ml-1">Confirm Password</span>
+                            <div class="relative flex items-center">
+                                <span class="material-symbols-outlined absolute left-4 text-[#a3b99d]">lock_reset</span>
+                                <input
+                                    class="form-input flex w-full rounded-full bg-[#142210] border border-[#2c3928] focus:border-primary focus:ring-1 focus:ring-primary h-14 pl-12 pr-4 text-white placeholder-[#5c6b55] transition-all"
+                                    placeholder="••••••••" type="password" />
+                            </div>
+                        </label>
+                    </div> -->
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col-reverse sm:flex-row gap-4 pt-4 mt-4 border-t border-[#2c3928]">
+                                <button
+                                    class="flex-1 sm:flex-none px-8 h-12 rounded-full border border-[#41543b] text-white font-bold hover:bg-[#2c3928] transition-colors"
+                                    type="button">
+                                    <a href="/profile">Cancel</a>
+                                </button>
+                                <button
+                                    class="flex-1 sm:flex-none px-8 h-12 rounded-full bg-primary text-black font-bold shadow-[0_0_20px_rgba(70,236,19,0.3)] hover:shadow-[0_0_30px_rgba(70,236,19,0.5)] hover:bg-[#3bdb0f] transition-all flex items-center justify-center gap-2"
+                                    type="submit">
+                                    <span class="material-symbols-outlined">save</span>
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </main>
+
+            <script src="/script.js"></script>
+    </body>
+
+</html>
