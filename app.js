@@ -4,6 +4,9 @@ import authRoutes from "./routes/authRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
 import profileRoute from "./routes/profileRoute.js"
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+dotenv.config(); // <-- dotenv config must be at the top
+
 
 import methodOverride from "method-override";
  import session from "express-session";
@@ -25,11 +28,23 @@ app.use(express.json());
  app.use(express.static(path.join(__dirname, "public")));
 
 //express-session 
+// app.use(session({
+//     secret: "kinza",
+//     resave: false,
+//     saveUninitialized: false,
+// }))
+app.set("trust proxy", 1);
+
 app.use(session({
-    secret: "kinza",
-    resave: false,
-    saveUninitialized: false,
-}))
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: true,
+    sameSite: "lax"
+  }
+}));
+
 // global middalware for session name 
 app.use((req, res, next) => {
     if (req.session.userId) {
