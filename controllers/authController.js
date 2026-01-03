@@ -61,46 +61,17 @@ export const loginUser = async (req, res) => {
 
     }
 }
-
-
-// export const loginUser = async (req, res) => {
-//     try {
-//         // 1️⃣ Trim input & convert email to lowercase
-//         const email = req.body.email.trim().toLowerCase();
-//         const password = req.body.password.trim();
-
-//         // 2️⃣ Find user (case-insensitive)
-//         const user = await users.findOne({ email: { $regex: `^${email}$`, $options: "i" } });
-
-//         // 3️⃣ If user not found → redirect to register
-//         if (!user) {
-//             return res.redirect("/register");
-//         }
-
-//         // 4️⃣ Check password (plain text)
-//         if (password === user.password) {
-//             // 5️⃣ Setup session
-//             req.session.userId = user._id;
-//             req.session.isAuth = true;
-//             req.session.name = user.name;
-//             req.session.email = user.email;
-//             req.session.pic = user.pic || ""; // fallback
-
-//             // 6️⃣ Redirect to dashboard
-//             return res.redirect("/dashboard");
-//         }
-
-//         // 7️⃣ Wrong password → redirect login with message
-//         return res.redirect("/login?msg=email or password is incorrect");
-//     } catch (err) {
-//         console.log("user not logged in:", err);
-//         return res.redirect("/login?msg=internal server error");
-//     }
-// };
-
-
 export const logout = (req, res) => {
-    req.session.destroy();
+    // req.session.destroy();
+    // res.redirect("/login");
+     req.session.destroy(err => {
+    if (err) {
+      console.log(err);
+      return res.redirect("/dashboard");
+    }
+
+    res.clearCookie("connect.sid"); // 🔥 VERY IMPORTANT
     res.redirect("/login");
+  });
 };
 
