@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <% -include("head") %>
-<body>
-    <header
-                class="flex items-center justify-between px-6 py-4 border-b border-surface-dark bg-background-dark/95 backdrop-blur z-10">
-                <div class="flex-1 max-w-xl">
-                    <div class="relative group">
-                        <div
-                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-secondary group-focus-within:text-primary transition-colors">
-                            <span class="material-symbols-outlined">search</span>
-                        </div>
-                        <input
-                            class="block w-full pl-10 pr-3 py-2.5 border-none rounded-xl bg-surface-dark text-white placeholder-text-secondary focus:ring-2 focus:ring-primary focus:outline-none transition-shadow text-sm"
-                            placeholder="Search tasks, projects, or tags..." type="text" />
+
+    <body>
+        <header
+            class="flex items-center justify-between px-6 py-4 border-b border-surface-dark bg-background-dark/95 backdrop-blur z-10">
+            <!-- hedaer sidebar menu btn -->
+            <button onclick="toggleSidebar()" class="md:hidden p-2 text-white">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <div class="flex-1 max-w-xl">
+
+                <div class="relative group">
+                    <div
+                        class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-secondary group-focus-within:text-primary transition-colors">
+                        <span class="material-symbols-outlined">search</span>
                     </div>
+                    <input
+                        class="block w-full pl-10 pr-3 py-2.5 border-none rounded-xl bg-surface-dark text-white placeholder-text-secondary focus:ring-2 focus:ring-primary focus:outline-none transition-shadow text-sm"
+                        placeholder="Search tasks, projects, or tags..." type="text" />
                 </div>
-                <div class="flex items-center gap-4 ml-4">
-                    <button
-                        class="hidden sm:flex items-center justify-center p-2 rounded-xl text-text-secondary hover:text-white hover:bg-surface-dark transition-colors">
-                        <span class="material-symbols-outlined">notifications</span>
-                    </button>
-                    <div class="flex items-center gap-3">
-                        <div class="text-right hidden sm:block">
-                            <p class="text-white text-sm font-bold"><%= username %></p>
-                            <p class="text-[#a3b99d] text-xs">Pro Member</p>
-                        </div>
-                        <!-- <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
+            </div>
+            <div class="flex items-center gap-4 ml-4">
+                <button
+                    class="hidden sm:flex items-center justify-center p-2 rounded-xl text-text-secondary hover:text-white hover:bg-surface-dark transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <div class="flex items-center gap-3">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-white text-sm font-bold">
+                            <%= username %>
+                        </p>
+                        <p class="text-[#a3b99d] text-xs">Pro Member</p>
+                    </div>
+                    <!-- <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
                             data-alt="User profile picture of a smiling person"
                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUfQ9nvZb4qh93kEB38LfhzD-7gm9sBpBaXV8NkONkc1csF_rnjD3YVINVROYvLGm82jw_6L1C17jiliee9ssG4veD5M9TgoKcSaq7UbCW-WEajYL4wKAJpryIJgKV4FdPvBFmAPAS56N5PTO5zSbTcIEWHJHXTPLahFloRIDdHbMt6sB6JxO8HErHjbwSnu8OxXoCSYPA2uzs2AVR2AS74_V4MfXn7Oc019iIULeG3JXVNmOp-rGpKZZ878JFX-W5ALSFwaoHhF0");'>
                         </div> -->
-                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
-                            data-alt="User profile picture of a smiling person"
-                        ><img src="<%= pic %>" alt="" class="w-10 h-10 rounded-full">
-                        </div>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
+                        data-alt="User profile picture of a smiling person"><img src="<%= pic %>" alt=""
+                            class="w-10 h-10 rounded-full">
                     </div>
                 </div>
-            </header>
-            <script src="script.js"></script>
-</body>
+            </div>
+
+        </header>
+
+        <script src="script.js"></script>
+    </body>
+
 </html>
