@@ -2,199 +2,200 @@
 
 <html class="dark" lang="en">
 
-<% -include("../partials/head") %> 
+<%- include("../partials/head") %>
 
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden">
-    <div class="flex h-screen w-full">
-        <!-- Sidebar -->
-        <%- include('../partials/sidebar') %>
+    <body
+        class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden">
+        <div class="flex h-screen w-full">
+            <!-- Sidebar -->
+            <%- include('../partials/sidebar') %>
 
-            <!-- Main Content -->
-            <main class="flex-1 flex flex-col h-full min-w-0 bg-[#131811] overflow-hidden relative">
-                <!-- Top Navigation -->
-                <%- include('../partials/header') %>
-                    <!-- Scrollable Page Content -->
-                    <div class="flex-1 overflow-y-auto custom-scrollbar p-6 lg:px-10 pb-20">
-                        <div class="max-w-[1400px] mx-auto flex flex-col gap-6">
-                            <!-- Page Heading -->
-                            <div class="flex flex-wrap items-end justify-between gap-4">
-                                <div class="flex flex-col gap-1">
-                                    <h2
-                                        class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
-                                        My
-                                        Tasks</h2>
-                                    <p class="text-[#a3b99d] text-base font-normal">You have 5 tasks remaining for this
-                                        week.
-                                    </p>
+                <!-- Main Content -->
+                <main class="flex-1 flex flex-col h-full min-w-0 bg-[#131811] overflow-hidden relative">
+                    <!-- Top Navigation -->
+                    <%- include('../partials/header') %>
+                        <!-- Scrollable Page Content -->
+                        <div class="flex-1 overflow-y-auto custom-scrollbar p-6 lg:px-10 pb-20">
+                            <div class="max-w-[1400px] mx-auto flex flex-col gap-6">
+                                <!-- Page Heading -->
+                                <div class="flex flex-wrap items-end justify-between gap-4">
+                                    <div class="flex flex-col gap-1">
+                                        <h2
+                                            class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                                            My
+                                            Tasks</h2>
+                                        <p class="text-[#a3b99d] text-base font-normal">You have 5 tasks remaining for
+                                            this
+                                            week.
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <button
+                                            class="hidden sm:flex items-center justify-center gap-2 px-4 h-10 rounded-lg border border-[#2c3928] text-white hover:bg-[#2c3928] transition-colors text-sm font-bold">
+                                            <span class="material-symbols-outlined text-[20px]">download</span>
+                                            Export
+                                        </button>
+                                        <button
+                                            class="flex items-center justify-center gap-2 px-4 h-10 rounded-lg bg-[#2c3928] text-white hover:bg-[#3d4f37] transition-colors text-sm font-bold">
+                                            <span class="material-symbols-outlined text-[20px]">view_agenda</span>
+                                            View All
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="flex gap-3">
-                                    <button
-                                        class="hidden sm:flex items-center justify-center gap-2 px-4 h-10 rounded-lg border border-[#2c3928] text-white hover:bg-[#2c3928] transition-colors text-sm font-bold">
-                                        <span class="material-symbols-outlined text-[20px]">download</span>
-                                        Export
-                                    </button>
-                                    <button
-                                        class="flex items-center justify-center gap-2 px-4 h-10 rounded-lg bg-[#2c3928] text-white hover:bg-[#3d4f37] transition-colors text-sm font-bold">
-                                        <span class="material-symbols-outlined text-[20px]">view_agenda</span>
-                                        View All
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Controls Toolbar (Search + Filters) -->
-                            <div
-                                class="flex flex-col lg:flex-row gap-4 bg-[#1a2118] p-4 rounded-xl border border-[#2c3928]">
-                                <!-- Main Search -->
-                                <div class="flex-1">
-                                    <label class="flex flex-col w-full h-10">
-                                        <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-                                            <div
-                                                class="text-[#a3b99d] flex border-none bg-[#2c3928] items-center justify-center pl-4 rounded-l-lg">
-                                                <span class="material-symbols-outlined">search</span>
+                                <!-- Controls Toolbar (Search + Filters) -->
+                                <div
+                                    class="flex flex-col lg:flex-row gap-4 bg-[#1a2118] p-4 rounded-xl border border-[#2c3928]">
+                                    <!-- Main Search -->
+                                    <div class="flex-1">
+                                        <label class="flex flex-col w-full h-10">
+                                            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                                                <div
+                                                    class="text-[#a3b99d] flex border-none bg-[#2c3928] items-center justify-center pl-4 rounded-l-lg">
+                                                    <span class="material-symbols-outlined">search</span>
+                                                </div>
+                                                <input
+                                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2c3928] focus:border-none h-full placeholder:text-[#a3b99d] px-4 rounded-l-none pl-2 text-sm font-medium"
+                                                    placeholder="Search by task title..." value="" />
                                             </div>
-                                            <input
-                                                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2c3928] focus:border-none h-full placeholder:text-[#a3b99d] px-4 rounded-l-none pl-2 text-sm font-medium"
-                                                placeholder="Search by task title..." value="" />
+                                        </label>
+                                    </div>
+                                    <!-- Filters -->
+                                    <div class="flex gap-3 flex-wrap items-center">
+                                        <div class="relative group">
+                                            <button
+                                                class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#2c3928] hover:bg-[#3d4f37] transition-colors pl-4 pr-3 border border-transparent hover:border-[#a3b99d]/30">
+                                                <!-- <p class="text-white text-sm font-medium">Status: All</p> -->
+                                                <select
+                                                    class="text-white text-sm font-medium bg-[#2c3928] border-none focus-none"
+                                                    name="" id="">All
+                                                    <option class="bg-transparent" value="panding">Pending</option>
+                                                    <option class="bg-transparent" value="completed">Completed</option>
+                                                    <option class="bg-transparent" value="process">Process</option>
+                                                </select>
+
+                                            </button>
                                         </div>
-                                    </label>
-                                </div>
-                                <!-- Filters -->
-                                <div class="flex gap-3 flex-wrap items-center">
-                                    <div class="relative group">
-                                        <button
-                                            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#2c3928] hover:bg-[#3d4f37] transition-colors pl-4 pr-3 border border-transparent hover:border-[#a3b99d]/30">
-                                            <!-- <p class="text-white text-sm font-medium">Status: All</p> -->
-                                            <select
-                                                class="text-white text-sm font-medium bg-[#2c3928] border-none focus-none"
-                                                name="" id="">All
-                                                <option class="bg-transparent" value="panding">Pending</option>
-                                                <option class="bg-transparent" value="completed">Completed</option>
-                                                <option class="bg-transparent" value="process">Process</option>
-                                            </select>
+                                        <div class="relative group">
+                                            <button
+                                                class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#2c3928] hover:bg-[#3d4f37] transition-colors pl-4 pr-3 border border-transparent hover:border-[#a3b99d]/30">
+                                                <!-- <p class="text-white text-sm font-medium">Status: All</p> -->
+                                                <select
+                                                    class="text-white text-sm font-medium bg-[#2c3928] border-none focus-none"
+                                                    name="" id="">Priority
+                                                    <option class="bg-transparent" value="low">Low</option>
+                                                    <option class="bg-transparent" value="medium">Medium</option>
+                                                    <option class="bg-transparent" value="hard">Hard</option>
+                                                </select>
 
-                                        </button>
-                                    </div>
-                                    <div class="relative group">
-                                        <button
-                                            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#2c3928] hover:bg-[#3d4f37] transition-colors pl-4 pr-3 border border-transparent hover:border-[#a3b99d]/30">
-                                            <!-- <p class="text-white text-sm font-medium">Status: All</p> -->
-                                            <select
-                                                class="text-white text-sm font-medium bg-[#2c3928] border-none focus-none"
-                                                name="" id="">Priority
-                                                <option class="bg-transparent" value="low">Low</option>
-                                                <option class="bg-transparent" value="medium">Medium</option>
-                                                <option class="bg-transparent" value="hard">Hard</option>
-                                            </select>
-
-                                        </button>
-                                    </div>
-                                    <div class="h-8 w-px bg-[#2c3928] mx-1"></div>
-                                    <div class="flex bg-[#2c3928] rounded-lg p-1 h-10 items-center">
-                                        <button
-                                            class="size-8 flex items-center justify-center rounded bg-[#131811] shadow text-primary">
-                                            <span class="material-symbols-outlined text-[20px]">grid_view</span>
-                                        </button>
-                                        <button
-                                            class="size-8 flex items-center justify-center rounded text-[#a3b99d] hover:text-white">
-                                            <span class="material-symbols-outlined text-[20px]">list</span>
-                                        </button>
+                                            </button>
+                                        </div>
+                                        <div class="h-8 w-px bg-[#2c3928] mx-1"></div>
+                                        <div class="flex bg-[#2c3928] rounded-lg p-1 h-10 items-center">
+                                            <button
+                                                class="size-8 flex items-center justify-center rounded bg-[#131811] shadow text-primary">
+                                                <span class="material-symbols-outlined text-[20px]">grid_view</span>
+                                            </button>
+                                            <button
+                                                class="size-8 flex items-center justify-center rounded text-[#a3b99d] hover:text-white">
+                                                <span class="material-symbols-outlined text-[20px]">list</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Task Grid -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                <!-- Card 1: High Priority -->
+                                <!-- Task Grid -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    <!-- Card 1: High Priority -->
 
 
-                                <% AllTasks.forEach(Task=> { %>
+                                    <% AllTasks.forEach(Task=> { %>
 
-                                    <article
-                                        class="group flex flex-col gap-4 p-5 rounded-xl bg-[#2c3928] hover:bg-[#32412d] transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 border border-transparent hover:border-primary/20 cursor-pointer">
+                                        <article
+                                            class="group flex flex-col gap-4 p-5 rounded-xl bg-[#2c3928] hover:bg-[#32412d] transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 border border-transparent hover:border-primary/20 cursor-pointer">
 
-                                        <div class="flex justify-between items-start">
-                                            <span
-                                                class="px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold border border-orange-500/20 uppercase tracking-wide">
-                                                <%= Task.Priority %>
-                                            </span>
-
-                                            <div class="flex gap-2">
-                                                <!-- Edit -->
-
-                                                <a href="/edit/<%= Task._id %>"
-                                                    class="p-1.5 rounded-md text-blue-400 hover:text-blue-500 hover:bg-[#131811] transition">
-                                                    <span class="material-symbols-outlined text-[20px]">edit</span>
-                                                </a>
-
-                                                <!-- Delete -->
-                                                <form action="/delete/<%= Task._id %>?_method=DELETE" method="POST">
-                                                    <button type="submit"
-                                                        class="p-1.5 rounded-md text-red-400 hover:text-red-500 hover:bg-[#131811] transition">
-                                                        <span
-                                                            class="material-symbols-outlined text-[20px]">delete</span>
-                                                    </button>
-                                                </form>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="flex flex-col gap-2">
-                                            <h3 class="text-white text-lg font-bold leading-tight">
-                                                <%= Task.Title %>
-                                            </h3>
-
-                                            <p class="text-[#a3b99d] text-sm line-clamp-2 leading-relaxed">
-                                                <%= Task.description %>
-                                            </p>
-                                        </div>
-
-                                        <div
-                                            class="mt-auto pt-4 border-t border-[#131811]/50 flex items-center justify-between">
-                                            <div class="flex items-center gap-2 text-[#a3b99d]">
+                                            <div class="flex justify-between items-start">
                                                 <span
-                                                    class="material-symbols-outlined text-[18px]">calendar_today</span>
-                                                <span class="text-xs font-medium">
-                                                    <%= Task.date.toDateString() %>
+                                                    class="px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold border border-orange-500/20 uppercase tracking-wide">
+                                                    <%= Task.Priority %>
                                                 </span>
+
+                                                <div class="flex gap-2">
+                                                    <!-- Edit -->
+
+                                                    <a href="/edit/<%= Task._id %>"
+                                                        class="p-1.5 rounded-md text-blue-400 hover:text-blue-500 hover:bg-[#131811] transition">
+                                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                                    </a>
+
+                                                    <!-- Delete -->
+                                                    <form action="/delete/<%= Task._id %>?_method=DELETE" method="POST">
+                                                        <button type="submit"
+                                                            class="p-1.5 rounded-md text-red-400 hover:text-red-500 hover:bg-[#131811] transition">
+                                                            <span
+                                                                class="material-symbols-outlined text-[20px]">delete</span>
+                                                        </button>
+                                                    </form>
+
+                                                </div>
+
                                             </div>
 
-                                            <div class="flex items-center gap-1">
-                                                <span class="size-2 rounded-full bg-blue-400 animate-pulse"></span>
-                                                <span class="text-xs font-medium text-blue-400">
-                                                    <%= Task.status %>
-                                                </span>
+                                            <div class="flex flex-col gap-2">
+                                                <h3 class="text-white text-lg font-bold leading-tight">
+                                                    <%= Task.Title %>
+                                                </h3>
+
+                                                <p class="text-[#a3b99d] text-sm line-clamp-2 leading-relaxed">
+                                                    <%= Task.description %>
+                                                </p>
                                             </div>
-                                        </div>
 
-                                    </article>
+                                            <div
+                                                class="mt-auto pt-4 border-t border-[#131811]/50 flex items-center justify-between">
+                                                <div class="flex items-center gap-2 text-[#a3b99d]">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                                    <span class="text-xs font-medium">
+                                                        <%= Task.date.toDateString() %>
+                                                    </span>
+                                                </div>
 
-                                    <% }) %>
+                                                <div class="flex items-center gap-1">
+                                                    <span class="size-2 rounded-full bg-blue-400 animate-pulse"></span>
+                                                    <span class="text-xs font-medium text-blue-400">
+                                                        <%= Task.status %>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </article>
+
+                                        <% }) %>
 
 
-                            </div>
-                            <!-- Pagination / Footer -->
-                            <div class="flex items-center justify-center pt-8">
-                                <button
-                                    class="flex items-center gap-2 text-[#a3b99d] hover:text-primary text-sm font-medium transition-colors">
-                                    Load more tasks
-                                    <span class="material-symbols-outlined">expand_more</span>
-                                </button>
+                                </div>
+                                <!-- Pagination / Footer -->
+                                <div class="flex items-center justify-center pt-8">
+                                    <button
+                                        class="flex items-center gap-2 text-[#a3b99d] hover:text-primary text-sm font-medium transition-colors">
+                                        Load more tasks
+                                        <span class="material-symbols-outlined">expand_more</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-            </main>
-    </div>
-    <!-- Floating Action Button for Mobile -->
-    <button 
-        
-    class="lg:hidden fixed bottom-6 right-6 size-14 rounded-full bg-primary text-[#131811] shadow-xl flex items-center justify-center z-50 hover:bg-[#3bdb0f] transition-colors">
-      <a href="/createtask">
-         <span class="material-symbols-outlined text-3xl">add</span>
-</a> 
-     
+                </main>
+        </div>
+        <!-- Floating Action Button for Mobile -->
+        <button
+            class="lg:hidden fixed bottom-6 right-6 size-14 rounded-full bg-primary text-[#131811] shadow-xl flex items-center justify-center z-50 hover:bg-[#3bdb0f] transition-colors">
+            <a href="/createtask">
+                <span class="material-symbols-outlined text-3xl">add</span>
+            </a>
 
-      
-    </button>
-    <script src="/script.js"></script>
-</body>
+
+
+        </button>
+        <script src="/script.js"></script>
+    </body>
 
 </html>
