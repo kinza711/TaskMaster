@@ -4,123 +4,135 @@
 
 <% -include("../partials/head") %>
 
-<body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-black">
-    <div class="flex h-screen w-full overflow-hidden">
-        <!-- Sidebar -->
-        <%- include('../partials/sidebar') %>
+    <body
+        class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-black">
+        <div class="flex h-screen w-full overflow-hidden">
+            <!-- Sidebar -->
+            <%- include('../partials/sidebar') %>
 
-        <!-- Main Content -->
-        <main class="flex flex-1 flex-col overflow-y-auto bg-background-dark">
-            <!-- Mobile Header (Visible only on small screens) -->
+                <!-- Main Content -->
+                <main class="flex flex-1 flex-col overflow-y-auto bg-background-dark">
+                    <!-- Mobile Header (Visible only on small screens) -->
                     <%- include('../partials/header') %>
 
-            <div class="container mx-auto max-w-5xl px-4 py-8 lg:px-8">
-                <!-- Breadcrumbs -->
-                <div class="mb-6 flex items-center gap-2 text-sm">
-                    <a class="text-slate-400 transition-colors hover:text-primary" href="#">Tasks</a>
-                    <span class="text-slate-600">/</span>
-                    <span class="font-medium text-white">Create Task</span>
-                </div>
-                <!-- Page Heading -->
-                <div class="mb-10 flex flex-col gap-2">
-                    <h2 class="text-4xl font-extrabold tracking-tight text-white">Create New Task</h2>
-                    <p class="text-lg text-slate-400">Fill in the details below to add a new task to your personal list.
-                    </p>
-                </div>
-                <!-- Main Form Card -->
-                <form action="/createtask" method="POST" class="rounded-2xl border border-border-dark bg-surface-dark p-6 shadow-xl lg:p-10">
-                    <div class="grid gap-8">
-                        <!-- Section: Task Details -->
-                        <div class="grid gap-6">
-                            <!-- Task Title -->
-                            <div class="flex flex-col gap-2">
-                                <label class="text-sm font-medium text-slate-300" for="task-title">Task Title</label>
-                                <input
-                                    class="w-full rounded-xl border border-border-dark bg-background-dark p-4 text-base text-white placeholder-slate-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                                    id="task-title" placeholder="e.g., Q3 Financial Report Review" type="text" name="Title" required/>
+                        <div class="container mx-auto max-w-5xl px-4 py-8 lg:px-8">
+                            <!-- Breadcrumbs -->
+                            <div class="mb-6 flex items-center gap-2 text-sm">
+                                <a class="text-slate-400 transition-colors hover:text-primary" href="/mytasks">Tasks</a>
+                                <span class="text-slate-600">/</span>
+                                <span class="font-medium text-white">Create Task</span>
                             </div>
-                            <!-- Description -->
-                            <div class="flex flex-col gap-2">
-                                <label class="text-sm font-medium text-slate-300" for="task-desc">Description</label>
-                                <textarea
-                                    class="w-full resize-y rounded-xl border border-border-dark bg-background-dark p-4 text-base text-white placeholder-slate-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                                    id="task-desc" placeholder="Add detailed notes, sub-tasks, or context here..." name="description"
-                                    rows="5" required></textarea>
+                            <!-- Page Heading -->
+                            <div class="mb-10 flex flex-col gap-2">
+                                <h2 class="text-4xl font-extrabold tracking-tight text-white">Create New Task</h2>
+                                <p class="text-lg text-slate-400">Fill in the details below to add a new task to your
+                                    personal list.
+                                </p>
                             </div>
-                        </div>
-                        <!-- Divider -->
-                        <hr class="border-border-dark" />
-                        <!-- Section: Metadata (Grid Layout) -->
-                        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-                            <!-- Priority -->
-                            <div class="flex flex-col gap-2">
-                                <label class="text-sm font-medium text-slate-300" for="priority">Priority Level</label>
-                                <div class="relative" >
-                                    <span
-                                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">flag</span>
-                                    <select
-                                        class="w-full appearance-none rounded-xl border border-border-dark bg-background-dark py-3.5 pl-12 pr-10 text-white shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                                        id="priority" name="Priority" required>
-                                        <option selected disabled value="">Select Priority</option>
-                                        <option  value="low">Low Priority</option>
-                                        <option  value="medium">Medium Priority</option>
-                                        <option value="hard">High Priority</option>
-                                    </select>
-                                    <span
-                                        class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">expand_more</span>
+                            <!-- Main Form Card -->
+                            <form action="/createtask" method="POST"
+                                class="rounded-2xl border border-border-dark bg-surface-dark p-6 shadow-xl lg:p-10">
+                                <div class="grid gap-8">
+                                    <!-- Section: Task Details -->
+                                    <div class="grid gap-6">
+                                        <!-- Task Title -->
+                                        <div class="flex flex-col gap-2">
+                                            <label class="text-sm font-medium text-slate-300" for="task-title">Task
+                                                Title</label>
+                                            <input
+                                                class="w-full rounded-xl border border-border-dark bg-background-dark p-4 text-base text-white placeholder-slate-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                                                id="task-title" placeholder="e.g., Q3 Financial Report Review"
+                                                type="text" name="Title" required />
+                                        </div>
+                                        <!-- Description -->
+                                        <div class="flex flex-col gap-2">
+                                            <label class="text-sm font-medium text-slate-300"
+                                                for="task-desc">Description</label>
+                                            <textarea
+                                                class="w-full resize-y rounded-xl border border-border-dark bg-background-dark p-4 text-base text-white placeholder-slate-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                                                id="task-desc"
+                                                placeholder="Add detailed notes, sub-tasks, or context here..."
+                                                name="description" rows="5" required></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- Divider -->
+                                    <hr class="border-border-dark" />
+                                    <!-- Section: Metadata (Grid Layout) -->
+                                    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                                        <!-- Priority -->
+                                        <div class="flex flex-col gap-2">
+                                            <label class="text-sm font-medium text-slate-300" for="priority">Priority
+                                                Level</label>
+                                            <div class="relative">
+                                                <span
+                                                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">flag</span>
+                                                <select
+                                                    class="w-full appearance-none rounded-xl border border-border-dark bg-background-dark py-3.5 pl-12 pr-10 text-white shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                                                    id="priority" name="Priority" required>
+                                                    <option selected disabled value="">Select Priority</option>
+                                                    <option value="low">Low Priority</option>
+                                                    <option value="medium">Medium Priority</option>
+                                                    <option value="hard">High Priority</option>
+                                                </select>
+                                                <span
+                                                    class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">expand_more</span>
+                                            </div>
+                                        </div>
+                                        <!-- Status -->
+                                        <div class="flex flex-col gap-2">
+                                            <label class="text-sm font-medium text-slate-300" for="status">Current
+                                                Status</label>
+                                            <div class="relative">
+                                                <span
+                                                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">pending</span>
+                                                <select
+                                                    class="w-full appearance-none rounded-xl border border-border-dark bg-background-dark py-3.5 pl-12 pr-10 text-white shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                                                    id="status" name="status" required>
+                                                    <option selected disabled value="">Select Status</option>
+                                                    <option value="pending">To Do / Pending</option>
+                                                    <option value="progress">In Progress</option>
+                                                    <option value="completed">Completed</option>
+                                                </select>
+                                                <span
+                                                    class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">expand_more</span>
+                                            </div>
+                                        </div>
+                                        <!-- Due Date -->
+                                        <div class="flex flex-col gap-2">
+                                            <label class="text-sm font-medium text-slate-300" for="due-date">Due
+                                                Date</label>
+                                            <div class="relative">
+                                                <span
+                                                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">event</span>
+                                                <input
+                                                    class="w-full appearance-none rounded-xl border border-border-dark bg-background-dark py-3.5 pl-12 pr-4 text-white placeholder-slate-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
+                                                    id="due-date" type="date" name="date" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Actions -->
+                                    <div class="mt-4 flex flex-col-reverse justify-end gap-4 pt-4 sm:flex-row">
+
+                                        <a href="/mytasks" class="mt-4 flex flex-col-reverse justify-end gap-4 pt-4 sm:flex-row">
+                                            <button
+                                                class="group flex items-center justify-center gap-2 rounded-xl border border-border-dark bg-transparent px-8 py-3.5 text-base font-bold text-slate-300 transition-all hover:border-slate-500 hover:bg-white/5 hover:text-white focus:ring-2 focus:ring-white/20"
+                                                type="button">
+                                                Cancel
+                                            </button>
+                                        </a>
+                                        <button
+                                            class="flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-base font-bold text-black shadow-[0_0_20px_-5px_rgba(70,236,19,0.4)] transition-all hover:bg-[#3adb0f] hover:shadow-[0_0_25px_-5px_rgba(70,236,19,0.6)] focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background-dark"
+                                            type="submit">
+                                            <span class="material-symbols-outlined">save</span>
+                                            Save Task
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Status -->
-                            <div class="flex flex-col gap-2">
-                                <label class="text-sm font-medium text-slate-300" for="status">Current Status</label>
-                                <div class="relative">
-                                    <span
-                                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">pending</span>
-                                    <select
-                                        class="w-full appearance-none rounded-xl border border-border-dark bg-background-dark py-3.5 pl-12 pr-10 text-white shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                                        id="status" name="status" required>
-                                        <option selected disabled value="">Select Status</option>
-                                        <option value="pending">To Do / Pending</option>
-                                        <option value="progress">In Progress</option>
-                                        <option value="completed">Completed</option>
-                                    </select>
-                                    <span
-                                        class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">expand_more</span>
-                                </div>
-                            </div>
-                            <!-- Due Date -->
-                            <div class="flex flex-col gap-2">
-                                <label class="text-sm font-medium text-slate-300" for="due-date">Due Date</label>
-                                <div class="relative">
-                                    <span
-                                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">event</span>
-                                    <input
-                                        class="w-full appearance-none rounded-xl border border-border-dark bg-background-dark py-3.5 pl-12 pr-4 text-white placeholder-slate-500 shadow-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-                                        id="due-date" type="date" name="date" required />
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                        <!-- Actions -->
-                        <div class="mt-4 flex flex-col-reverse justify-end gap-4 pt-4 sm:flex-row">
-                            <button
-                                class="group flex items-center justify-center gap-2 rounded-xl border border-border-dark bg-transparent px-8 py-3.5 text-base font-bold text-slate-300 transition-all hover:border-slate-500 hover:bg-white/5 hover:text-white focus:ring-2 focus:ring-white/20"
-                                type="button">
-                               <a href="/mytasks">Cancel</a> 
-                            </button>
-                            <button
-                                class="flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-base font-bold text-black shadow-[0_0_20px_-5px_rgba(70,236,19,0.4)] transition-all hover:bg-[#3adb0f] hover:shadow-[0_0_25px_-5px_rgba(70,236,19,0.6)] focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background-dark"
-                                type="submit">
-                                <span class="material-symbols-outlined">save</span>
-                                Save Task
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </main>
-    </div>
-    <script src="/script.js"></script>
-</body>
+                </main>
+        </div>
+        <script src="/script.js"></script>
+    </body>
 
 </html>

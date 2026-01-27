@@ -27,22 +27,27 @@
                     class="hidden sm:flex items-center justify-center p-2 rounded-xl text-text-secondary hover:text-white hover:bg-surface-dark transition-colors">
                     <span class="material-symbols-outlined">notifications</span>
                 </button>
-                <div class="flex items-center gap-3">
-                    <div class="text-right hidden sm:block">
-                        <p class="text-white text-sm font-bold">
-                            <%= username %>
-                        </p>
-                        <p class="text-[#a3b99d] text-xs">Pro Member</p>
-                    </div>
-                    <!-- <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
+
+                <a href="/profile">
+                    <div class="flex items-center gap-3">
+                        <div class="text-right hidden sm:block">
+                            <p class="text-white text-sm font-bold">
+                                <%= username %>
+                            </p>
+                            <p class="text-[#a3b99d] text-xs">Free Plan</p>
+                        </div>
+                        <!-- <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
                             data-alt="User profile picture of a smiling person"
                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUfQ9nvZb4qh93kEB38LfhzD-7gm9sBpBaXV8NkONkc1csF_rnjD3YVINVROYvLGm82jw_6L1C17jiliee9ssG4veD5M9TgoKcSaq7UbCW-WEajYL4wKAJpryIJgKV4FdPvBFmAPAS56N5PTO5zSbTcIEWHJHXTPLahFloRIDdHbMt6sB6JxO8HErHjbwSnu8OxXoCSYPA2uzs2AVR2AS74_V4MfXn7Oc019iIULeG3JXVNmOp-rGpKZZ878JFX-W5ALSFwaoHhF0");'>
                         </div> -->
-                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
-                        data-alt="User profile picture of a smiling person"><img src="<%= pic %>" alt=""
-                            class="w-10 h-10 rounded-full">
+
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-[#2c3928]"
+                            data-alt="User profile picture of a smiling person"><img src="<%= pic %>" alt=""
+                                class="w-10 h-10 rounded-full">
+                        </div>
                     </div>
-                </div>
+                </a>
+
             </div>
 
         </header>
