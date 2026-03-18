@@ -7,7 +7,8 @@ Each user has **secure access to their own tasks and profile**, ensuring complet
 ---
 
 ## 🚀 Live Demo
-🔗[ https://your-live-link-here](https://taskmaster-app-soz2.onrender.com/)
+
+🔗(https://taskmaster-app-soz2.onrender.com/)
 
 **🛠 Tech Stack**
 
@@ -21,6 +22,7 @@ Each user has **secure access to their own tasks and profile**, ensuring complet
 - Stitch (Frontend UI Design)
 
 ---
+
 **Key Features**
 
 - User Authentication & Protected Routes
@@ -35,52 +37,52 @@ Each user has **secure access to their own tasks and profile**, ensuring complet
 ---
 
 ## 📂 Project Structure
+
 taskmaster/
 │
 ├── models/
-│   ├── User.js
-│   └── Task.js
+│ ├── User.js
+│ └── Task.js
 │
 ├── controllers/
-│   ├── authController.js
-│   ├── taskController.js
-│   └── profileController.js
+│ ├── authController.js
+│ ├── taskController.js
+│ └── profileController.js
 │
 ├── routes/
-│   ├── authRoutes.js
-│   ├── taskRoutes.js
-│   └── profileRoutes.js
+│ ├── authRoutes.js
+│ ├── taskRoutes.js
+│ └── profileRoutes.js
 │
 ├── middleware/
-│   └── authMiddleware.js
-|    └── upload.js
+│ └── authMiddleware.js
+| └── upload.js
 │
 ├── views/
-│   ├── auth/
-|            ├── / ── login.ejs
-|            ├── / ── register.ejs
-│   ├── partials/
-|            ├── / ── head.ejs
-|            ├── / ── header.ejs
-|            ├── / ── footer.ejs
-|            ├── / ── sidebar.ejs
-│   ├── user/
-│   └── tasks/
-|             ├── / ── 404page.ejs
-|             ├── / ── createtask.ejs
-|             ├── / ── dashbaord.ejs
-|             ├── / ── edittask.ejs
-|             ├── / ── mytask.ejs
-|    ├── / ── editprofile.ejs
-|    ├── / ── home.ejs
-|    ├── / ── profile.ejs
+│ ├── auth/
+| ├── / ── login.ejs
+| ├── / ── register.ejs
+│ ├── partials/
+| ├── / ── head.ejs
+| ├── / ── header.ejs
+| ├── / ── footer.ejs
+| ├── / ── sidebar.ejs
+│ ├── user/
+│ └── tasks/
+| ├── / ── 404page.ejs
+| ├── / ── createtask.ejs
+| ├── / ── dashbaord.ejs
+| ├── / ── edittask.ejs
+| ├── / ── mytask.ejs
+| ├── / ── editprofile.ejs
+| ├── / ── home.ejs
+| ├── / ── profile.ejs
 │
-├── public/ 
-│   ├── css/
-│   └── uploads/
+├── public/
+│ ├── css/
+│ └── uploads/
 │
 ├── .gitignore
 ├── app.js
 ├── server.js
 └── package.json
-
