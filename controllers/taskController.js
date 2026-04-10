@@ -34,6 +34,10 @@ export const getDashboard = async (req, res) => {
     });
   } catch (err) {
     console.log("dashbord task gettimng issue", err);
+    res.status(500).json({
+      message: "server error",
+      error: err.message,
+    });
   }
 };
 
@@ -60,6 +64,10 @@ export const createTask = async (req, res) => {
     // console.log(tasks, "task craeted successfully");
   } catch (err) {
     console.log("task not careted", err);
+    res.status(500).json({
+      message: "server error task not created",
+      error: err.message,
+    });
   }
 };
 //find tasks
@@ -93,6 +101,10 @@ export const deleteTasks = async (req, res) => {
     res.redirect("/mytasks");
   } catch (err) {
     console.log("task not deleted", err);
+    res.status(500).json({
+      message: "server error task not deleted",
+      error: err.message,
+    });
   }
 };
 //edit task
@@ -103,11 +115,29 @@ export const editTask = async (req, res) => {
   res.render("./tasks/edittask", { Task: task });
 };
 
-//update task
+//update task working without try catch
+
+// export const updateTask = async (req, res) => {
+//   const { id } = req.params;
+//   await Task.findByIdAndUpdate({ _id: id, user: req.session.userId }, req.body);
+
+//   res.redirect("/mytasks");
+// };
 
 export const updateTask = async (req, res) => {
-  const { id } = req.params;
-  await Task.findByIdAndUpdate({ _id: id, user: req.session.userId }, req.body);
+  try {
+    const { id } = req.params;
+    await Task.findByIdAndUpdate(
+      { _id: id, user: req.session.userId },
+      req.body,
+    );
 
-  res.redirect("/mytasks");
+    res.redirect("/mytasks");
+  } catch (err) {
+    console.log(err, "task not updated");
+    res.status(500).json({
+      message: "server error task not updatead",
+      error: err.message,
+    });
+  }
 };
